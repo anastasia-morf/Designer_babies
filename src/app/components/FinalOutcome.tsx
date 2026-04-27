@@ -2,6 +2,11 @@ import { Home, RotateCcw } from 'lucide-react';
 
 import { GameState } from '../App';
 import { DecisionTree } from './DecisionTree';
+import { GoogleFormEmbed } from './GoogleFormEmbed';
+
+// 🔧 Paste your "after" Google Form embed URL here:
+const POST_GAME_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSdHggu03q2xATqYAY7rVoLkmndxIVr-oGcn_qGIMQLJK1bb0Q/viewform?usp=publish-editor';
 
 interface FinalOutcomeProps {
   choices: GameState;
@@ -29,34 +34,20 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
       };
     }
 
-export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) {
-  const getOutcome = (): Outcome => {
-    const publicFunding = choices.scene4 === 'A';
-    const mandatory = choices.scene5 === 'A';
-
-    if (publicFunding && mandatory) {
-      return {
-        title: 'Universal Screening',
-        summary:
-          'Screening is publicly funded and becomes part of standard IVF care. This could reduce preventable genetic disease and make access more equal, but it also raises questions about how much choice families really have when screening becomes the default.',
-        gradient: 'from-slate-700 to-indigo-700',
-      };
-    }
-
     if (publicFunding && !mandatory) {
       return {
-        title: 'Funded Choice',
+        title: 'Supported Choice',
         summary:
-          'Screening is available to everyone, but families decide whether to use it. This gives people more support without forcing one decision, though over time it may still create pressure to choose the “safest” embryo.',
-        gradient: 'from-blue-600 to-cyan-700',
+          'Public funding for everyone, but families still choose. Sounds balanced. Until screening becomes normal and opting out starts to feel like a risk.',
+        gradient: 'from-blue-500 to-purple-600',
       };
     }
 
     return {
-      title: 'Private Access',
+      title: 'The Uneven Shield',
       summary:
-        'Screening remains optional and privately funded. Families keep more personal control over the decision, but access depends on money, meaning some people have more reproductive choices than others.',
-      gradient: 'from-amber-600 to-orange-700',
+        "No mandate, no public funding. Basically the world we're in already. Whoever can pay gets the screening, whoever can't, doesn't.",
+      gradient: 'from-amber-500 to-orange-600',
     };
   };
 
@@ -83,17 +74,33 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
           className={`mb-8 rounded-3xl bg-gradient-to-br ${outcome.gradient} p-6 text-white shadow-xl sm:p-10`}
         >
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/80 sm:text-sm">
-            Your outcome
+            You ended at
           </p>
-
           <h2 className="mt-2 text-3xl font-black sm:text-4xl">
             {outcome.title}
           </h2>
-
           <p className="mt-4 text-base leading-relaxed sm:text-lg">
             {outcome.summary}
           </p>
         </div>
+
+        <section className="mb-8 rounded-3xl bg-white/90 p-6 shadow-xl backdrop-blur sm:p-8">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
+            One more thing
+          </p>
+          <h3 className="mb-4 text-2xl font-black text-gray-900 sm:text-3xl">
+            How did the game land?
+          </h3>
+          <p className="mb-6 text-sm leading-relaxed text-gray-600 sm:text-base">
+            Quick survey now that you've played through.
+          </p>
+
+          <GoogleFormEmbed
+            src={POST_GAME_FORM_URL}
+            title="Post-game survey"
+            height={900}
+          />
+        </section>
 
         <div className="pb-4 text-center">
           <button
