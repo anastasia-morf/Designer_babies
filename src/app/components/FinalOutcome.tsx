@@ -11,7 +11,7 @@ interface FinalOutcomeProps {
 
 interface Outcome {
   title: string;
-  description: string;
+  summary: string;
   gradient: string;
 }
 
@@ -23,8 +23,8 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
     if (publicFunding && mandatory) {
       return {
         title: 'The Prevention State',
-        description:
-          "Publicly funded, state-mandated embryo selection. Egalitarian in access, but the state now has a formal position on which embryos should be implanted. You've chosen universal access and collective action to prevent genetic disease. But you've also given the state the authority to decide which genetic variants are compatible with being born. The line between prevention and prescription may prove hard to hold.",
+        summary:
+          'Universal access, state mandate. Disease prevention as collective action — but the state now has a position on which embryos belong. Prevention and prescription start to blur.',
         gradient: 'from-purple-600 to-pink-600',
       };
     }
@@ -32,16 +32,16 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
     if (publicFunding && !mandatory) {
       return {
         title: 'Supported Choice',
-        description:
-          'The "moderate" position: universal access, individual choice. The question it can\'t answer — does voluntary really stay voluntary under social pressure? You\'ve chosen the compromise position: make the technology available to everyone, but let families decide. It sounds balanced. But when everyone around you is screening, when the technology is normalised, when choosing not to test means choosing risk — is that choice still meaningfully free?',
+        summary:
+          'Universal access, individual choice. The middle path. But when screening becomes the norm, opting out starts to mean choosing risk — is voluntary still voluntary?',
         gradient: 'from-blue-500 to-purple-600',
       };
     }
 
     return {
       title: 'The Uneven Shield',
-      description:
-        "Technology exists, access follows income. The world we are roughly already in. Disease prevention is real for those who can pay; not for those who can't. You've chosen to keep genetic screening in the private market. It means no state control over reproductive decisions — but it also means that protection from genetic disease tracks wealth. Some children are screened, some are not. The lottery of birth gets a new dimension.",
+      summary:
+        "Roughly the world we're already in. No state control over reproduction — but protection from genetic disease tracks wealth. The lottery of birth gets a new dimension.",
       gradient: 'from-amber-500 to-orange-600',
     };
   };
@@ -61,28 +61,22 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
           </button>
         )}
 
-        <div className="mb-8 text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
-            Your outcome
-          </p>
-          <h1 className="text-4xl font-black text-gray-900 sm:text-5xl">
-            {outcome.title}
-          </h1>
-          <p className="mx-auto mt-3 max-w-md text-sm text-gray-600 sm:text-base">
-            Based on your decisions through the five scenes.
-          </p>
+        <div className="mb-8">
+          <DecisionTree choices={choices} />
         </div>
 
         <div
           className={`mb-8 rounded-3xl bg-gradient-to-br ${outcome.gradient} p-6 text-white shadow-xl sm:p-10`}
         >
-          <p className="text-base leading-relaxed sm:text-lg">
-            {outcome.description}
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/80 sm:text-sm">
+            You ended at
           </p>
-        </div>
-
-        <div className="mb-8">
-          <DecisionTree choices={choices} />
+          <h2 className="mt-2 text-3xl font-black sm:text-4xl">
+            {outcome.title}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed sm:text-lg">
+            {outcome.summary}
+          </p>
         </div>
 
         <section className="mb-8 rounded-3xl bg-white/90 p-6 shadow-xl backdrop-blur sm:p-8">
@@ -92,29 +86,25 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
           <ul className="space-y-3 text-base text-gray-700">
             <li className="flex gap-3">
               <span className="text-purple-600">•</span>
-              <span>Were you surprised by the world your choices created?</span>
+              <span>Were you surprised by where your choices led?</span>
             </li>
             <li className="flex gap-3">
               <span className="text-purple-600">•</span>
-              <span>Which decision was hardest for you? Why?</span>
+              <span>Which decision was hardest? Why?</span>
             </li>
             <li className="flex gap-3">
               <span className="text-purple-600">•</span>
-              <span>Did your priorities shift as you moved through the scenarios?</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-purple-600">•</span>
-              <span>
-                What trade-offs between equity, autonomy, and prevention did you
-                notice?
-              </span>
+              <span>Did your priorities shift across the scenes?</span>
             </li>
             <li className="flex gap-3">
               <span className="text-purple-600">•</span>
               <span>
-                How do you think others with different values might have chosen
-                differently?
+                What trade-offs between equity, autonomy, and prevention came up?
               </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-purple-600">•</span>
+              <span>How might someone with different values have chosen?</span>
             </li>
           </ul>
         </section>
