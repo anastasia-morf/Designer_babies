@@ -49,6 +49,9 @@ return {
     'Screening is optional and privately paid. Families who can afford it have access, while others may not.',
   gradient: 'from-amber-500 to-orange-600',
 };
+
+  };
+
   const outcome = getOutcome();
 
   return (
