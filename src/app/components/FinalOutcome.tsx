@@ -25,32 +25,30 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
     const publicFunding = choices.scene4 === 'A';
     const mandatory = choices.scene5 === 'A';
 
-    if (publicFunding && mandatory) {
-      return {
-        title: 'The Prevention State',
-        summary:
-          'Public funding and mandatory screening. Everyone gets access. But the government now has a say in which embryos get implanted.',
-        gradient: 'from-purple-600 to-pink-600',
-      };
-    }
-
-    if (publicFunding && !mandatory) {
-      return {
-        title: 'Supported Choice',
-        summary:
-          'Public funding for everyone, but families still choose. Sounds balanced. Until screening becomes normal and opting out starts to feel like a risk.',
-        gradient: 'from-blue-500 to-purple-600',
-      };
-    }
-
-    return {
-      title: 'The Uneven Shield',
-      summary:
-        "No mandate, no public funding. Basically the world we're in already. Whoever can pay gets the screening, whoever can't, doesn't.",
-      gradient: 'from-amber-500 to-orange-600',
-    };
+if (publicFunding && mandatory) {
+  return {
+    title: 'Universal Screening',
+    summary:
+      'Screening is publicly funded and required. Everyone has access, but families have less individual choice about whether to use it.',
+    gradient: 'from-purple-600 to-pink-600',
   };
+}
 
+if (publicFunding && !mandatory) {
+  return {
+    title: 'Funded Choice',
+    summary:
+      'Screening is publicly funded, but families can choose whether to use it. This improves access while keeping individual choice.',
+    gradient: 'from-blue-500 to-purple-600',
+  };
+}
+
+return {
+  title: 'Private Access',
+  summary:
+    'Screening is optional and privately paid. Families who can afford it have access, while others may not.',
+  gradient: 'from-amber-500 to-orange-600',
+};
   const outcome = getOutcome();
 
   return (
