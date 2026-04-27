@@ -8,7 +8,7 @@ interface DecisionTreeProps {
 }
 
 type ChoiceValue = 'A' | 'B';
-type OutcomeId = 'prevention' | 'supported' | 'uneven';
+type OutcomeId = 'universal' | 'funded' | 'private';
 
 interface SceneOption {
   label: string;
@@ -111,39 +111,39 @@ export function DecisionTree({ choices }: DecisionTreeProps) {
     },
   ];
 
-const outcomes: OutcomeData[] = [
-  {
-    id: 'prevention',
-    title: 'Universal Screening',
-    blurb:
-      'Screening is publicly funded and becomes part of standard IVF care. This could reduce preventable genetic disease and make access more equal, but it also raises questions about how much choice families really have when screening becomes the default.',
-    gradient: 'from-slate-700 to-indigo-700',
-  },
-  {
-    id: 'supported',
-    title: 'Funded Choice',
-    blurb:
-      'Screening is available to everyone, but families decide whether to use it. This gives people more support without forcing one decision, though over time it may still create pressure to choose the “safest” embryo.',
-    gradient: 'from-blue-600 to-cyan-700',
-  },
-  {
-    id: 'uneven',
-    title: 'Private Access',
-    blurb:
-      'Screening remains optional and privately funded. Families keep more personal control over the decision, but access depends on money, meaning some people have more reproductive choices than others.',
-    gradient: 'from-amber-600 to-orange-700',
-  },
-];
+  const outcomes: OutcomeData[] = [
+    {
+      id: 'universal',
+      title: 'Universal Screening',
+      blurb:
+        'Screening is publicly funded and required. Everyone has access, but families have less individual choice about whether to use it.',
+      gradient: 'from-purple-600 to-pink-600',
+    },
+    {
+      id: 'funded',
+      title: 'Funded Choice',
+      blurb:
+        'Screening is publicly funded, but families can choose whether to use it. This improves access while keeping individual choice.',
+      gradient: 'from-blue-500 to-purple-600',
+    },
+    {
+      id: 'private',
+      title: 'Private Access',
+      blurb:
+        'Screening is optional and privately paid. Families who can afford it have access, while others may not.',
+      gradient: 'from-amber-500 to-orange-600',
+    },
+  ];
   
   const getChoice = (s: number): ChoiceValue | null =>
     choices[`scene${s}` as keyof GameState] as ChoiceValue | null;
 
   const userOutcome: OutcomeId =
     choices.scene4 === 'A' && choices.scene5 === 'A'
-      ? 'prevention'
+      ? 'universal'
       : choices.scene4 === 'A' && choices.scene5 === 'B'
-        ? 'supported'
-        : 'uneven';
+        ? 'funded'
+        : 'private';
 
   return (
     <section className="rounded-3xl bg-white/90 p-5 shadow-xl backdrop-blur sm:p-8">
