@@ -111,30 +111,30 @@ export function DecisionTree({ choices }: DecisionTreeProps) {
     },
   ];
 
-  const outcomes: OutcomeData[] = [
-    {
-      id: 'prevention',
-      title: 'The Prevention State',
-      blurb:
-        'Public funding plus mandatory screening. Everyone gets access, but the government now has a say in which embryos get implanted.',
-      gradient: 'from-purple-600 to-pink-600',
-    },
-    {
-      id: 'supported',
-      title: 'Supported Choice',
-      blurb:
-        'Public funding, families still choose. Sounds balanced. Until screening becomes normal and opting out starts to feel like a risk.',
-      gradient: 'from-blue-500 to-purple-600',
-    },
-    {
-      id: 'uneven',
-      title: 'The Uneven Shield',
-      blurb:
-        "No mandate, no public funding. Basically the world we're in already. Whoever can pay gets the screening.",
-      gradient: 'from-amber-500 to-orange-600',
-    },
-  ];
-
+const outcomes: OutcomeData[] = [
+  {
+    id: 'prevention',
+    title: 'Universal Screening',
+    blurb:
+      'Screening is publicly funded and becomes part of standard IVF care. This could reduce preventable genetic disease and make access more equal, but it also raises questions about how much choice families really have when screening becomes the default.',
+    gradient: 'from-slate-700 to-indigo-700',
+  },
+  {
+    id: 'supported',
+    title: 'Funded Choice',
+    blurb:
+      'Screening is available to everyone, but families decide whether to use it. This gives people more support without forcing one decision, though over time it may still create pressure to choose the “safest” embryo.',
+    gradient: 'from-blue-600 to-cyan-700',
+  },
+  {
+    id: 'uneven',
+    title: 'Private Access',
+    blurb:
+      'Screening remains optional and privately funded. Families keep more personal control over the decision, but access depends on money, meaning some people have more reproductive choices than others.',
+    gradient: 'from-amber-600 to-orange-700',
+  },
+];
+  
   const getChoice = (s: number): ChoiceValue | null =>
     choices[`scene${s}` as keyof GameState] as ChoiceValue | null;
 
