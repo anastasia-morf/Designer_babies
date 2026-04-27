@@ -24,7 +24,7 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
       return {
         title: 'The Prevention State',
         summary:
-          'Universal access, state mandate. Disease prevention as collective action — but the state now has a position on which embryos belong. Prevention and prescription start to blur.',
+          'Public funding and mandatory screening. Everyone gets access. But the government now has a say in which embryos get implanted.',
         gradient: 'from-purple-600 to-pink-600',
       };
     }
@@ -33,7 +33,7 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
       return {
         title: 'Supported Choice',
         summary:
-          'Universal access, individual choice. The middle path. But when screening becomes the norm, opting out starts to mean choosing risk — is voluntary still voluntary?',
+          'Public funding for everyone, but families still choose. Sounds balanced. Until screening becomes normal and opting out starts to feel like a risk.',
         gradient: 'from-blue-500 to-purple-600',
       };
     }
@@ -41,7 +41,7 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
     return {
       title: 'The Uneven Shield',
       summary:
-        "Roughly the world we're already in. No state control over reproduction — but protection from genetic disease tracks wealth. The lottery of birth gets a new dimension.",
+        "No mandate, no public funding. Basically the world we're in already. Whoever can pay gets the screening, whoever can't, doesn't.",
       gradient: 'from-amber-500 to-orange-600',
     };
   };
@@ -78,36 +78,6 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
             {outcome.summary}
           </p>
         </div>
-
-        <section className="mb-8 rounded-3xl bg-white/90 p-6 shadow-xl backdrop-blur sm:p-8">
-          <h3 className="mb-4 text-2xl font-black text-gray-900 sm:text-3xl">
-            Reflection questions
-          </h3>
-          <ul className="space-y-3 text-base text-gray-700">
-            <li className="flex gap-3">
-              <span className="text-purple-600">•</span>
-              <span>Were you surprised by where your choices led?</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-purple-600">•</span>
-              <span>Which decision was hardest? Why?</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-purple-600">•</span>
-              <span>Did your priorities shift across the scenes?</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-purple-600">•</span>
-              <span>
-                What trade-offs between equity, autonomy, and prevention came up?
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-purple-600">•</span>
-              <span>How might someone with different values have chosen?</span>
-            </li>
-          </ul>
-        </section>
 
         <div className="pb-4 text-center">
           <button
