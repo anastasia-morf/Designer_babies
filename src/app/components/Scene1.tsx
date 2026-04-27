@@ -1,5 +1,6 @@
+import { ArrowRight, Home } from 'lucide-react';
+
 import { Choice } from '../App';
-import { Home } from 'lucide-react';
 
 interface Scene1Props {
   onChoice: (choice: Choice) => void;
@@ -8,74 +9,83 @@ interface Scene1Props {
 
 export function Scene1({ onChoice, onHome }: Scene1Props) {
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      {onHome && (
-        <button
-          onClick={onHome}
-          className="fixed top-6 left-6 bg-white hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-full shadow-lg transition-all flex items-center gap-2 z-10"
-        >
-          <Home className="w-4 h-4" />
-          <span>Home</span>
-        </button>
-      )}
-      <div className="max-w-3xl w-full">
-        <div className="bg-white rounded-3xl shadow-xl p-8">
-          <div className="mb-6">
-            <div className="text-sm text-purple-600 mb-2">SCENE 1 OF 5</div>
-            <h1 className="text-3xl mb-4 text-gray-800">The Clinic</h1>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-4 py-8 sm:px-6">
+      <main className="mx-auto max-w-3xl">
+        {onHome && (
+          <button
+            onClick={onHome}
+            className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-white"
+          >
+            <Home className="h-4 w-4" />
+            Home
+          </button>
+        )}
+
+        <section className="rounded-3xl bg-white/90 p-6 shadow-xl backdrop-blur sm:p-8">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
+            Scene 1 of 5
+          </p>
+
+          <h1 className="mb-6 text-4xl font-black text-gray-900">
+            The clinic
+          </h1>
+
+          <div className="space-y-4 text-base leading-relaxed text-gray-700">
+            <p>
+              You and your partner have been trying to conceive for two years.
+              After fertility testing, your specialist recommends IVF.
+            </p>
+
+            <p>
+              At your first appointment, the clinic offers preimplantation
+              genetic testing, or PGT. This screens embryos for chromosomal
+              abnormalities before transfer. It may improve the chance of
+              pregnancy and reduce the risk of miscarriage.
+            </p>
+
+            <p>
+              But testing is not perfect. Some embryos flagged as abnormal may
+              still lead to healthy births, and testing can leave you with fewer
+              embryos to choose from. In some cases, none are recommended for
+              transfer.
+            </p>
+
+            <p>
+              PGT adds about ten days and costs $2,500 out of pocket. Some
+              couples find the extra information reassuring. Others feel it
+              creates more uncertainty.
+            </p>
           </div>
 
-          <div className="prose prose-lg mb-8">
-            <p className="text-gray-700 leading-relaxed">
-              You and your partner have been trying to conceive for two years, and after fertility testing, your specialist has recommended IVF.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              At the first consultation, the clinic offers preimplantation genetic testing (PGT). It can screen embryos for chromosomal abnormalities before transfer, which may improve the chance of a successful pregnancy and reduce the risk of miscarriage.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              The counsellor explains that testing isn't perfect. Some embryos flagged as abnormal may still result in healthy births, and screening can reduce the number of embryos available for transfer. In some cases, no embryos are considered suitable after testing.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              The process adds around ten days and costs $2,500 out of pocket, on top of an already expensive IVF cycle. Because it isn't covered by Medicare, not all couples choose to include it.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              Some couples find the extra information reassuring. Others feel it introduces more uncertainty and difficult decisions.
-            </p>
-          </div>
-
-          <div className="space-y-4">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <button
               onClick={() => onChoice('A')}
-              className="w-full bg-blue-50 hover:bg-blue-100 border-2 border-blue-300 hover:border-blue-400 text-gray-800 p-6 rounded-xl text-left transition-all group"
+              className="group rounded-2xl border-2 border-blue-300 bg-blue-50 p-5 text-left transition-all hover:scale-[1.02] hover:border-blue-400 hover:bg-blue-100"
             >
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="text-lg mb-2 group-hover:text-blue-700">A. Test the embryos</div>
-                  <div className="text-sm text-gray-600">
-                    Screen for chromosomal abnormalities before implantation
-                  </div>
-                </div>
-                <div className="text-3xl text-blue-400 group-hover:text-blue-600">→</div>
-              </div>
+              <p className="mb-2 text-lg font-bold text-gray-900">
+                A. Test the embryos
+              </p>
+              <p className="text-sm leading-relaxed text-gray-700">
+                Screen for chromosomal abnormalities before implantation
+              </p>
+              <ArrowRight className="mt-4 h-5 w-5 text-blue-600 transition-transform group-hover:translate-x-1" />
             </button>
 
             <button
               onClick={() => onChoice('B')}
-              className="w-full bg-purple-50 hover:bg-purple-100 border-2 border-purple-300 hover:border-purple-400 text-gray-800 p-6 rounded-xl text-left transition-all group"
+              className="group rounded-2xl border-2 border-purple-300 bg-purple-50 p-5 text-left transition-all hover:scale-[1.02] hover:border-purple-400 hover:bg-purple-100"
             >
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="text-lg mb-2 group-hover:text-purple-700">B. Implant without testing</div>
-                  <div className="text-sm text-gray-600">
-                    Proceed with standard IVF without genetic screening
-                  </div>
-                </div>
-                <div className="text-3xl text-purple-400 group-hover:text-purple-600">→</div>
-              </div>
+              <p className="mb-2 text-lg font-bold text-gray-900">
+                B. Implant without testing
+              </p>
+              <p className="text-sm leading-relaxed text-gray-700">
+                Proceed with standard IVF
+              </p>
+              <ArrowRight className="mt-4 h-5 w-5 text-purple-600 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }
