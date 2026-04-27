@@ -1,6 +1,1 @@
-  ## Running the code
-
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+Game available at: https://anastasia-morf.github.io/Designer_babies/
