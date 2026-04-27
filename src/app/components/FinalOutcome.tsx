@@ -6,7 +6,7 @@ import { GoogleFormEmbed } from './GoogleFormEmbed';
 
 // 🔧 Paste your "after" Google Form embed URL here:
 const POST_GAME_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdHggu03q2xATqYAY7rVoLkmndxIVr-oGcn_qGIMQLJK1bb0Q/viewform?usp=publish-editor';
+  'https://docs.google.com/forms/d/e/1FAIpQLSf5QxEV0HTOWarEzVSmi_Rp5DvUDzBfor-ygDldNDrjeAjFBA/viewform';
 
 interface FinalOutcomeProps {
   choices: GameState;
