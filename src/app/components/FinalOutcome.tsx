@@ -29,7 +29,7 @@ if (publicFunding && mandatory) {
   return {
     title: 'Universal Screening',
     summary:
-      'Screening is publicly funded and required. Everyone has access, but families have less individual choice about whether to use it.',
+      'Screening is publicly funded and becomes part of standard IVF care. This could reduce preventable genetic disease and make access more equal, but it also raises questions about how much choice families really have when screening becomes the default.',
     gradient: 'from-purple-600 to-pink-600',
   };
 }
@@ -38,7 +38,7 @@ if (publicFunding && !mandatory) {
   return {
     title: 'Funded Choice',
     summary:
-      'Screening is publicly funded, but families can choose whether to use it. This improves access while keeping individual choice.',
+      'Screening is available to everyone, but families decide whether to use it. This gives people more support without forcing one decision, though over time it may still create pressure to choose the “safest” embryo.',
     gradient: 'from-blue-500 to-purple-600',
   };
 }
@@ -46,7 +46,7 @@ if (publicFunding && !mandatory) {
 return {
   title: 'Private Access',
   summary:
-    'Screening is optional and privately paid. Families who can afford it have access, while others may not.',
+    'Screening remains optional and privately funded. Families keep more personal control over the decision, but access depends on money, meaning some people have more reproductive choices than others.',
   gradient: 'from-amber-500 to-orange-600',
 };
 
