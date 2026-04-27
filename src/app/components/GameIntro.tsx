@@ -5,7 +5,7 @@ import { GoogleFormEmbed } from './GoogleFormEmbed';
 
 // 🔧 Paste your "before" Google Form embed URL here:
 const PRE_GAME_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSf5QxEV0HTOWarEzVSmi_Rp5DvUDzBfor-ygDldNDrjeAjFBA/viewform';
+  'https://docs.google.com/forms/d/e/1FAIpQLSdHggu03q2xATqYAY7rVoLkmndxIVr-oGcn_qGIMQLJK1bb0Q/viewform';
 
 interface GameIntroProps {
   onModeSelect: (mode: GameMode) => void;
