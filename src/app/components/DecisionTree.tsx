@@ -1,4 +1,4 @@
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 import { GameState } from '../App';
 
@@ -19,15 +19,6 @@ interface SceneSummary {
 }
 
 export function DecisionTree({ choices }: DecisionTreeProps) {
-  const getOutcome = () => {
-    const publicFunding = choices.scene4 === 'A';
-    const mandatory = choices.scene5 === 'A';
-
-    if (publicFunding && mandatory) return 'The Prevention State';
-    if (publicFunding && !mandatory) return 'Supported Choice';
-    return 'The Uneven Shield';
-  };
-
   const scene3Options =
     choices.scene2 === 'B'
       ? {
@@ -126,8 +117,11 @@ export function DecisionTree({ choices }: DecisionTreeProps) {
           const isA = selected === 'A';
           const isB = selected === 'B';
 
-          const chosenLabel =
-            isA ? scene.optionA : isB ? scene.optionB : 'No choice recorded';
+          const chosenLabel = isA
+            ? scene.optionA
+            : isB
+              ? scene.optionB
+              : 'No choice recorded';
 
           const chosenContext = isA
             ? scene.optionAContext
@@ -190,18 +184,6 @@ export function DecisionTree({ choices }: DecisionTreeProps) {
             </div>
           );
         })}
-
-        <div className="flex justify-center py-3" aria-hidden="true">
-          <ArrowDown className="h-5 w-5 text-purple-400" />
-        </div>
-
-        <div className="rounded-3xl bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-center text-white shadow-lg sm:p-8">
-          <Sparkles className="mx-auto mb-3 h-7 w-7" />
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-purple-100 sm:text-sm">
-            Final outcome
-          </p>
-          <p className="mt-2 text-2xl font-black sm:text-3xl">{getOutcome()}</p>
-        </div>
       </div>
     </section>
   );
