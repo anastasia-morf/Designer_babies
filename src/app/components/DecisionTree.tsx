@@ -1,303 +1,208 @@
+import { ArrowDown, Sparkles } from 'lucide-react';
+
 import { GameState } from '../App';
-import { Baby, Dna } from 'lucide-react';
 
 interface DecisionTreeProps {
   choices: GameState;
 }
 
-export function DecisionTree({ choices }: DecisionTreeProps) {
-  const isOnPath = (scene: number, choice: 'A' | 'B'): boolean => {
-    return choices[`scene${scene}` as keyof GameState] === choice;
-  };
+type ChoiceValue = 'A' | 'B';
 
-  // Calculate the outcome based on scenes 3, 4, 5
+interface SceneSummary {
+  scene: number;
+  title: string;
+  question: string;
+  optionA: string;
+  optionAContext: string;
+  optionB: string;
+  optionBContext: string;
+}
+
+export function DecisionTree({ choices }: DecisionTreeProps) {
   const getOutcome = () => {
     const publicFunding = choices.scene4 === 'A';
     const mandatory = choices.scene5 === 'A';
 
-    if (publicFunding && mandatory) return 'Prevention State';
+    if (publicFunding && mandatory) return 'The Prevention State';
     if (publicFunding && !mandatory) return 'Supported Choice';
-    return 'Uneven Shield';
+    return 'The Uneven Shield';
   };
 
+  const scene3Options =
+    choices.scene2 === 'B'
+      ? {
+          optionA: 'Implant Embryo 2',
+          optionAContext:
+            'You chose lower predicted cardiometabolic risk over higher cognitive and height scores.',
+          optionB: 'Implant Embryo 1',
+          optionBContext:
+            'You chose higher predicted cognitive and height scores, accepting elevated diabetes risk.',
+        }
+      : {
+          optionA: 'Implant the embryo',
+          optionAContext:
+            'You accepted the variant of uncertain significance and moved forward with the transfer.',
+          optionB: 'Start another cycle',
+          optionBContext:
+            'You chose to try again rather than implant an embryo carrying an uncertain flag.',
+        };
+
+  const scenes: SceneSummary[] = [
+    {
+      scene: 1,
+      title: 'The clinic',
+      question: 'Test the embryos before transfer?',
+      optionA: 'Test the embryos',
+      optionAContext:
+        'You chose to screen for chromosomal abnormalities before implantation.',
+      optionB: 'Implant without testing',
+      optionBContext:
+        'You chose to proceed with standard IVF and skip preimplantation genetic testing.',
+    },
+    {
+      scene: 2,
+      title: 'How far do you screen?',
+      question: 'Which screening pathway?',
+      optionA: 'Disease variants only',
+      optionAContext:
+        'You chose a basic panel limited to serious single-gene conditions.',
+      optionB: 'Full polygenic panel',
+      optionBContext:
+        'You added polygenic risk scores for complex conditions and traits.',
+    },
+    {
+      scene: 3,
+      title: 'A difficult result',
+      question: 'Which embryo pathway?',
+      ...scene3Options,
+    },
+    {
+      scene: 4,
+      title: 'The policy table',
+      question: 'Public funding for genetic screening?',
+      optionA: 'Recommend Medicare funding',
+      optionAContext:
+        'You backed public funding so genetic screening is universally accessible.',
+      optionB: 'Keep it private',
+      optionBContext:
+        'You chose to keep screening in the private market, paid out of pocket.',
+    },
+    {
+      scene: 5,
+      title: '2045: mandatory or voluntary?',
+      question: 'Future screening policy?',
+      optionA: 'Support mandatory screening',
+      optionAContext:
+        'You backed a bill requiring screening for all IVF pregnancies.',
+      optionB: 'Keep it voluntary',
+      optionBContext:
+        'You preserved individual choice and rejected mandatory screening.',
+    },
+  ];
+
+  const getChoice = (scene: number): ChoiceValue | null =>
+    choices[`scene${scene}` as keyof GameState] as ChoiceValue | null;
+
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl shadow-xl p-8 overflow-x-auto">
-      <div className="flex items-center justify-center gap-4 mb-12">
-        <div className="relative">
-          <div className="bg-gradient-to-br from-yellow-300 to-yellow-400 px-8 py-4 rounded-3xl shadow-lg border-4 border-yellow-500 transform -rotate-2">
-            <h3 className="text-3xl font-black text-gray-800">Decision</h3>
-          </div>
-          <div className="bg-gradient-to-br from-green-300 to-green-400 px-8 py-4 rounded-3xl shadow-lg border-4 border-green-500 transform rotate-1 mt-2">
-            <h3 className="text-3xl font-black text-gray-800">Tree</h3>
-          </div>
-        </div>
-        <div className="flex gap-3">
-          <div className="bg-purple-500 p-4 rounded-full shadow-lg border-4 border-purple-600">
-            <Dna className="w-12 h-12 text-white" strokeWidth={3} />
-          </div>
-          <div className="bg-pink-500 p-4 rounded-full shadow-lg border-4 border-pink-600">
-            <Baby className="w-12 h-12 text-white" strokeWidth={3} />
-          </div>
-        </div>
+    <section className="rounded-3xl bg-white/90 p-5 shadow-xl backdrop-blur sm:p-8">
+      <div className="mb-8 text-center">
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
+          Decision tree
+        </p>
+
+        <h3 className="text-3xl font-black text-gray-900 sm:text-4xl">
+          Your path through the game
+        </h3>
+
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base">
+          The five decisions you made and where they led.
+        </p>
       </div>
 
-      <div className="flex flex-col items-center min-w-[1400px] gap-12">
-        {/* Scene 1 */}
-        <div className="flex flex-col items-center">
-          <div className="bg-gradient-to-br from-blue-300 to-blue-400 px-8 py-4 rounded-3xl shadow-lg border-4 border-blue-500 text-center min-w-[280px]">
-            <div className="text-sm font-bold text-blue-900 mb-1">SCENE 1</div>
-            <div className="text-lg font-black text-gray-800">The Clinic</div>
-            <div className="text-xs text-blue-900 mt-1">Test embryos?</div>
-          </div>
+      <div className="mx-auto max-w-2xl">
+        {scenes.map((scene, idx) => {
+          const selected = getChoice(scene.scene);
 
-          <div className="flex gap-32 mt-8">
-            {/* Option A */}
-            <div className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                isOnPath(1, 'A')
-                  ? 'bg-gradient-to-br from-green-400 to-green-500 border-green-600'
-                  : 'bg-gray-300 border-gray-400'
-              }`}>
-                <span className="text-2xl font-black text-white">A</span>
-              </div>
-              <div className={`mt-2 px-4 py-2 rounded-2xl text-sm font-bold ${
-                isOnPath(1, 'A') ? 'text-green-700' : 'text-gray-500'
-              }`}>
-                YES
-              </div>
-            </div>
+          const isA = selected === 'A';
+          const isB = selected === 'B';
 
-            {/* Option B */}
-            <div className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                isOnPath(1, 'B')
-                  ? 'bg-gradient-to-br from-pink-400 to-pink-500 border-pink-600'
-                  : 'bg-gray-300 border-gray-400'
-              }`}>
-                <span className="text-2xl font-black text-white">B</span>
+          const chosenLabel =
+            isA ? scene.optionA : isB ? scene.optionB : 'No choice recorded';
+
+          const chosenContext = isA
+            ? scene.optionAContext
+            : isB
+              ? scene.optionBContext
+              : '';
+
+          const cardClasses = isA
+            ? 'border-blue-300 bg-blue-50'
+            : isB
+              ? 'border-purple-300 bg-purple-50'
+              : 'border-gray-200 bg-gray-50';
+
+          const titleClasses = isA
+            ? 'text-blue-900'
+            : isB
+              ? 'text-purple-900'
+              : 'text-gray-700';
+
+          const contextClasses = isA
+            ? 'text-blue-800'
+            : isB
+              ? 'text-purple-800'
+              : 'text-gray-600';
+
+          return (
+            <div key={scene.scene}>
+              <div className={`rounded-2xl border-2 p-5 sm:p-6 ${cardClasses}`}>
+                <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="rounded-full bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-purple-600 shadow-sm">
+                    Scene {scene.scene}
+                  </span>
+                  <span className="text-xs font-semibold text-gray-500">
+                    {scene.question}
+                  </span>
+                </div>
+
+                <h4 className="mb-3 text-lg font-bold text-gray-900 sm:text-xl">
+                  {scene.title}
+                </h4>
+
+                <div className="space-y-2">
+                  <p className={`text-base font-bold sm:text-lg ${titleClasses}`}>
+                    {selected ? `${selected}. ${chosenLabel}` : chosenLabel}
+                  </p>
+
+                  {chosenContext && (
+                    <p className={`text-sm leading-relaxed ${contextClasses}`}>
+                      {chosenContext}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div className={`mt-2 px-4 py-2 rounded-2xl text-sm font-bold ${
-                isOnPath(1, 'B') ? 'text-pink-700' : 'text-gray-500'
-              }`}>
-                NO
-              </div>
+
+              {idx < scenes.length - 1 && (
+                <div className="flex justify-center py-3" aria-hidden="true">
+                  <ArrowDown className="h-5 w-5 text-purple-300" />
+                </div>
+              )}
             </div>
-          </div>
+          );
+        })}
+
+        <div className="flex justify-center py-3" aria-hidden="true">
+          <ArrowDown className="h-5 w-5 text-purple-400" />
         </div>
 
-        {/* Scene 2 */}
-        <div className="flex gap-32">
-          {/* Left branch (if tested) */}
-          <div className="flex flex-col items-center">
-            <div className={`bg-gradient-to-br from-blue-300 to-blue-400 px-6 py-3 rounded-3xl shadow-lg border-4 border-blue-500 text-center min-w-[240px] ${
-              !isOnPath(1, 'A') ? 'opacity-40' : ''
-            }`}>
-              <div className="text-xs font-bold text-blue-900 mb-1">SCENE 2</div>
-              <div className="text-base font-black text-gray-800">How far screen?</div>
-            </div>
-
-            <div className="flex gap-16 mt-6">
-              <div className="flex flex-col items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                  isOnPath(1, 'A') && isOnPath(2, 'A')
-                    ? 'bg-gradient-to-br from-green-400 to-green-500 border-green-600'
-                    : 'bg-gray-300 border-gray-400'
-                }`}>
-                  <span className="text-lg font-black text-white">A</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                  isOnPath(1, 'A') && isOnPath(2, 'B')
-                    ? 'bg-gradient-to-br from-pink-400 to-pink-500 border-pink-600'
-                    : 'bg-gray-300 border-gray-400'
-                }`}>
-                  <span className="text-lg font-black text-white">B</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right branch (if not tested) */}
-          <div className="flex flex-col items-center">
-            <div className={`bg-gradient-to-br from-blue-300 to-blue-400 px-6 py-3 rounded-3xl shadow-lg border-4 border-blue-500 text-center min-w-[240px] ${
-              !isOnPath(1, 'B') ? 'opacity-40' : ''
-            }`}>
-              <div className="text-xs font-bold text-blue-900 mb-1">SCENE 2</div>
-              <div className="text-base font-black text-gray-800">How far screen?</div>
-            </div>
-
-            <div className="flex gap-16 mt-6">
-              <div className="flex flex-col items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                  isOnPath(1, 'B') && isOnPath(2, 'A')
-                    ? 'bg-gradient-to-br from-green-400 to-green-500 border-green-600'
-                    : 'bg-gray-300 border-gray-400'
-                }`}>
-                  <span className="text-lg font-black text-white">A</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                  isOnPath(1, 'B') && isOnPath(2, 'B')
-                    ? 'bg-gradient-to-br from-pink-400 to-pink-500 border-pink-600'
-                    : 'bg-gray-300 border-gray-400'
-                }`}>
-                  <span className="text-lg font-black text-white">B</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scene 3 - 4 paths */}
-        <div className="flex gap-12">
-          {[
-            { s1: 'A', s2: 'A' },
-            { s1: 'A', s2: 'B' },
-            { s1: 'B', s2: 'A' },
-            { s1: 'B', s2: 'B' }
-          ].map((path, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <div className={`bg-gradient-to-br from-blue-300 to-blue-400 px-4 py-2 rounded-3xl shadow-lg border-4 border-blue-500 text-center min-w-[180px] ${
-                !(isOnPath(1, path.s1 as 'A' | 'B') && isOnPath(2, path.s2 as 'A' | 'B')) ? 'opacity-40' : ''
-              }`}>
-                <div className="text-xs font-bold text-blue-900">SCENE 3</div>
-                <div className="text-sm font-black text-gray-800">Result</div>
-              </div>
-
-              <div className="flex gap-8 mt-4">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center border-3 shadow ${
-                  isOnPath(1, path.s1 as 'A' | 'B') && isOnPath(2, path.s2 as 'A' | 'B') && isOnPath(3, 'A')
-                    ? 'bg-gradient-to-br from-green-400 to-green-500 border-green-600'
-                    : 'bg-gray-300 border-gray-400'
-                }`}>
-                  <span className="text-sm font-black text-white">A</span>
-                </div>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center border-3 shadow ${
-                  isOnPath(1, path.s1 as 'A' | 'B') && isOnPath(2, path.s2 as 'A' | 'B') && isOnPath(3, 'B')
-                    ? 'bg-gradient-to-br from-pink-400 to-pink-500 border-pink-600'
-                    : 'bg-gray-300 border-gray-400'
-                }`}>
-                  <span className="text-sm font-black text-white">B</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Scene 4 - Policy */}
-        <div className="flex flex-col items-center">
-          <div className="bg-gradient-to-br from-purple-300 to-purple-400 px-8 py-4 rounded-3xl shadow-lg border-4 border-purple-500 text-center min-w-[300px]">
-            <div className="text-sm font-bold text-purple-900 mb-1">SCENE 4</div>
-            <div className="text-lg font-black text-gray-800">The Policy Table</div>
-            <div className="text-xs text-purple-900 mt-1">Medicare funding?</div>
-          </div>
-
-          <div className="flex gap-32 mt-8">
-            <div className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                isOnPath(4, 'A')
-                  ? 'bg-gradient-to-br from-green-400 to-green-500 border-green-600'
-                  : 'bg-gray-300 border-gray-400'
-              }`}>
-                <span className="text-2xl font-black text-white">A</span>
-              </div>
-              <div className={`mt-2 px-4 py-2 rounded-2xl text-sm font-bold ${
-                isOnPath(4, 'A') ? 'text-green-700' : 'text-gray-500'
-              }`}>
-                YES
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                isOnPath(4, 'B')
-                  ? 'bg-gradient-to-br from-pink-400 to-pink-500 border-pink-600'
-                  : 'bg-gray-300 border-gray-400'
-              }`}>
-                <span className="text-2xl font-black text-white">B</span>
-              </div>
-              <div className={`mt-2 px-4 py-2 rounded-2xl text-sm font-bold ${
-                isOnPath(4, 'B') ? 'text-pink-700' : 'text-gray-500'
-              }`}>
-                NO
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scene 5 - 2045 */}
-        <div className="flex flex-col items-center">
-          <div className="bg-gradient-to-br from-purple-300 to-purple-400 px-8 py-4 rounded-3xl shadow-lg border-4 border-purple-500 text-center min-w-[300px]">
-            <div className="text-sm font-bold text-purple-900 mb-1">SCENE 5</div>
-            <div className="text-lg font-black text-gray-800">2045 Future</div>
-            <div className="text-xs text-purple-900 mt-1">Mandatory screening?</div>
-          </div>
-
-          <div className="flex gap-32 mt-8">
-            <div className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                isOnPath(5, 'A')
-                  ? 'bg-gradient-to-br from-green-400 to-green-500 border-green-600'
-                  : 'bg-gray-300 border-gray-400'
-              }`}>
-                <span className="text-2xl font-black text-white">A</span>
-              </div>
-              <div className={`mt-2 px-4 py-2 rounded-2xl text-sm font-bold ${
-                isOnPath(5, 'A') ? 'text-green-700' : 'text-gray-500'
-              }`}>
-                YES
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center border-4 shadow-lg ${
-                isOnPath(5, 'B')
-                  ? 'bg-gradient-to-br from-pink-400 to-pink-500 border-pink-600'
-                  : 'bg-gray-300 border-gray-400'
-              }`}>
-                <span className="text-2xl font-black text-white">B</span>
-              </div>
-              <div className={`mt-2 px-4 py-2 rounded-2xl text-sm font-bold ${
-                isOnPath(5, 'B') ? 'text-pink-700' : 'text-gray-500'
-              }`}>
-                NO
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Final Outcome */}
-        <div className="flex justify-center gap-16 mt-8">
-          <div className="relative">
-            <div className="bg-gradient-to-br from-yellow-300 to-orange-400 px-8 py-4 rounded-3xl shadow-lg border-4 border-orange-500 text-center min-w-[280px]">
-              <div className="text-sm font-bold text-orange-900 mb-2">YOUR OUTCOME</div>
-              <div className="text-xl font-black text-gray-800">{getOutcome()}</div>
-            </div>
-            <div className="absolute -top-3 -right-3">
-              <span className="text-4xl">⭐</span>
-            </div>
-          </div>
+        <div className="rounded-3xl bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-center text-white shadow-lg sm:p-8">
+          <Sparkles className="mx-auto mb-3 h-7 w-7" />
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-purple-100 sm:text-sm">
+            Final outcome
+          </p>
+          <p className="mt-2 text-2xl font-black sm:text-3xl">{getOutcome()}</p>
         </div>
       </div>
-
-      <div className="mt-12 pt-6 border-t-4 border-dashed border-purple-300">
-        <div className="flex items-center justify-center gap-8 text-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-500 border-4 border-green-600"></div>
-            <span className="font-bold text-gray-700">Your Choice (A/Yes)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 border-4 border-pink-600"></div>
-            <span className="font-bold text-gray-700">Your Choice (B/No)</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gray-300 border-4 border-gray-400"></div>
-            <span className="font-bold text-gray-700">Not Selected</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
