@@ -37,65 +37,45 @@ export function Scene3({ choices, onChoice, onHome }: Scene3Props) {
             {fullPolygenicPanel ? (
               <>
                 <p>
-                  The results come back for both embryos. Both are chromosomally
-                  normal and free of the serious disease variants tested. But
-                  their polygenic scores differ.
+                  The results come back. Two embryos have been found to be viable. Both are chromosomally normal, and neither carries the serious disease variants tested.
                 </p>
 
                 <p>
-                  Embryo 1 scores higher for predicted cognitive traits and
-                  height, but has a moderately higher predicted risk of type 2
-                  diabetes.
+                  But the expanded report gives you more information than you expected.
                 </p>
 
                 <p>
-                  Embryo 2 has lower predicted risk for heart disease, diabetes,
-                  and stroke. Its predicted cognitive and height scores are
-                  around average.
+                  Embryo 1 scores higher for predicted cognitive traits and height, but has a moderately higher predicted risk of type 1 diabetes.
                 </p>
 
                 <p>
-                  The counsellor reminds you that these scores are
-                  probabilities, not guarantees. They do not determine whether a
-                  child will be healthier, smarter, taller, or more successful.
+                  Embryo 2 has lower predicted risk for heart disease, diabetes, and stroke. Its predicted cognitive and height scores are around average.
                 </p>
 
                 <p>
-                  The test has given you more information, but not a clear
-                  answer.
+                  The counsellor reminds you that these scores are probabilities, not guarantees. They do not determine whether a child will be healthier, smarter, taller, or more successful.
+                </p>
+
+                <p>
+                  Which embryo do you choose?
                 </p>
               </>
             ) : (
               <>
                 <p>
-                  The counsellor calls with the disease panel results. One
-                  embryo stopped developing before transfer, which can happen
-                  even with chromosomally normal embryos. You have one embryo
-                  left.
+                  The counsellor calls with the disease panel results. One embryo stopped developing before transfer, which can happen even with chromosomally normal embryos. You have one embryo left.
                 </p>
 
                 <p>
-                  That embryo is clear for the named diseases on the panel,
-                  including cystic fibrosis, sickle cell disease, Tay-Sachs
-                  disease, and Huntington’s disease.
+                  That embryo is clear for the named diseases on the panel, including cystic fibrosis, sickle cell disease, Tay-Sachs disease, and Huntington’s disease.
                 </p>
 
                 <p>
-                  However, the test found a variant of uncertain significance,
-                  or VUS, in a gene linked to hereditary cancer syndrome. This
-                  means there is a genetic change, but doctors do not yet know
-                  whether it is harmful.
+                  However, the test also found a variant of uncertain significance, or VUS, in a gene linked to hereditary cancer risk. This means there is a genetic change, but doctors do not yet know whether it is harmful. The counsellor explains that it might slightly increase cancer risk, but it might also do nothing at all.
                 </p>
 
                 <p>
-                  It might slightly increase lifetime cancer risk. It might do
-                  nothing at all. Clearer answers may take years.
-                </p>
-
-                <p>
-                  You can implant this embryo and accept the uncertainty, or
-                  start another IVF cycle. Another cycle would take months, cost
-                  thousands, and still offer no guarantee.
+                  You can implant this embryo and accept the uncertainty, or start another IVF cycle. Another cycle would take months, cost thousands, and still offer no guarantee. What do you choose?
                 </p>
               </>
             )}
