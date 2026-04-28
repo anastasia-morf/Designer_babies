@@ -36,24 +36,20 @@ export function Scene4({ choices, onChoice, onHome }: Scene4Props) {
           <div className="space-y-4 text-base leading-relaxed text-gray-700">
             <p>
               {testedEmbryos
-                ? 'You’re pregnant. The transfer worked. You think about the decisions that got you here.'
+                ? 'You’re pregnant. The transfer worked!'
                 : 'You’re pregnant. It took two IVF cycles and a lot of appointments.'}
             </p>
 
             <p>
-              Six months later, you receive an email. A parliamentary inquiry is
-              reviewing access to reproductive genetic technologies, and they’re
-              inviting submissions from people who’ve been through IVF with
-              genetic testing.
+              Six months later, you receive an email. A parliamentary inquiry is reviewing access to reproductive genetic technologies, and they’re inviting submissions from people who’ve been through IVF with genetic testing.
             </p>
 
             <p>
-              One of the key questions is whether preimplantation genetic
-              testing should be subsidised through Medicare. At the moment it
-              costs thousands of dollars out of pocket. Public funding would
-              mean universal access regardless of income, but it would also mean
-              the state is paying to select which embryos get implanted and
-              which don’t.
+              One of the key questions is whether preimplantation genetic testing should be subsidised through Medicare. At the moment it costs thousands of dollars out of pocket. Public funding would mean universal access regardless of income.
+            </p>
+
+            <p>
+              Do you support public funding of genetic testing?
             </p>
           </div>
 
