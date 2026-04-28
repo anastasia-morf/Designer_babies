@@ -37,44 +37,27 @@ export function Scene5({ choices, onChoice, onHome }: Scene5Props) {
             <p>
               {medicareFunding
                 ? 'It’s 2045 and your child is 18. In 2030, preimplantation genetic testing was added to Medicare. Uptake rose sharply, from 8% of IVF patients to more than 60%, and rates of certain inherited conditions have fallen measurably.'
-                : 'It’s 2045 and your child is 18. Genetic screening remained in the private market. The technology has become cheaper and more sophisticated, but access still tracks closely with income. Rates of serious inherited conditions have fallen among wealthier families and stayed roughly flat in lower-income communities. Researchers have a name for it now: the genomic divide.'}
+                : 'It’s 2045 and your child is 18. Genetic screening remained in the private market. The technology has become cheaper and more sophisticated, but access still tracks closely with income. Rates of serious inherited conditions have fallen among wealthier families and stayed roughly flat in lower-income communities.'}
             </p>
 
             <p>
-              A new debate has emerged. Public health modelling suggests that
-              widespread embryo screening could greatly reduce, or even
-              eliminate, some serious genetic conditions within two generations.
+              A new debate has emerged. Public health modelling suggests that widespread embryo screening could greatly reduce, or even eliminate, some serious genetic conditions within two generations.
             </p>
 
             <p>
-              A private member’s bill proposes mandatory genetic screening for
-              all IVF pregnancies. Under the bill, embryos affected by severe,
-              early-onset genetic conditions could not be transferred.
+              A private member’s bill proposes mandatory genetic screening for all IVF pregnancies. Under the bill, embryos affected by severe, early-onset genetic conditions could not be transferred.
             </p>
 
             <p>
-              Disability rights groups call the proposal eugenics. They argue
-              that “severe” is being defined without enough input from people
-              who live with these conditions. Some families feel the policy
-              suggests their children should not exist.
+              Disability rights groups call the proposal eugenics. They argue that “severe” is being defined without enough input from people who live with these conditions. Some families feel the policy suggests their children should not exist.
             </p>
 
             <p>
-              Others, including some parents of children with severe genetic
-              conditions, support the bill. They argue that if technology can
-              prevent serious suffering, there may be a responsibility to use
-              it.
+              Others, including some parents of children with severe genetic conditions, support the bill. They argue that if technology can prevent serious suffering, there may be a responsibility to use it.
             </p>
 
             <p>
-              Some also question whether “voluntary” screening is ever truly
-              equal. Some families cannot afford it. Others may feel judged if
-              they refuse it.
-            </p>
-
-            <p>
-              Your adult child asks where you stand. They are studying bioethics
-              and writing an essay on reproductive autonomy.
+              Where do you stand? Do you support mandatory genetic screening for all IVF pregnancies?
             </p>
           </div>
 
