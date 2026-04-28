@@ -32,28 +32,22 @@ export function Scene1({ onChoice, onHome }: Scene1Props) {
 
           <div className="space-y-4 text-base leading-relaxed text-gray-700">
             <p>
-              You and your partner have been trying to conceive for two years.
-              After fertility testing, your specialist recommends IVF.
+              At your first IVF appointment, the clinic offers a series of preimplantation genetic tests, or PGTs.
+              These tests screen embryos for certain genetic conditions, diseases or abnormalities that would severely limit the quality of life of the baby, 
+              to improve the chance of pregnancy and reduce the risk of miscarriage ().
             </p>
 
             <p>
-              At your first appointment, the clinic offers preimplantation
-              genetic testing, or PGT. This screens embryos for chromosomal
-              abnormalities before transfer. It may improve the chance of
-              pregnancy and reduce the risk of miscarriage.
+              But testing is not perfect. Some embryos can have a mixture of normal and abnormal cells, which can make results harder to interpret. A small biopsy may not always represent the whole embryo, so false positive or false negative results can occur (Source: Victor et al). Testing can also leave you with fewer embryos to choose from. In some cases, none are recommended for transfer (Source: Cimadomo).
             </p>
 
             <p>
-              But testing is not perfect. Some embryos flagged as abnormal may
-              still lead to healthy births, and testing can leave you with fewer
-              embryos to choose from. In some cases, none are recommended for
-              transfer.
+              It is important to know that the costs of PGT are in addition to your IVF costs and that embryo screening does not attract Medicare rebates.  In Australia, PGT often reaches around $4,000 and $6,000+ on top of each IVF cycle, or around ~$700–$900+ per embryo. 
+
             </p>
 
             <p>
-              PGT adds about ten days and costs $2,500 out of pocket. Some
-              couples find the extra information reassuring. Others feel it
-              creates more uncertainty.
+              Do you want to test the embryos, or not?
             </p>
           </div>
 
