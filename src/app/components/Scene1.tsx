@@ -38,16 +38,28 @@ export function Scene1({ onChoice, onHome }: Scene1Props) {
             </p>
 
             <p>
-              But testing is not perfect. Some embryos can have a mixture of normal and abnormal cells, which can make results harder to interpret. A small biopsy may not always represent the whole embryo, so false positive or false negative results can occur (Source: Victor et al). Testing can also leave you with fewer embryos to choose from. In some cases, none are recommended for transfer (Source: Cimadomo).
-            </p>
-
-            <p>
-              It is important to know that the costs of PGT are in addition to your IVF costs and that embryo screening does not attract Medicare rebates.  In Australia, PGT often reaches around $4,000 and $6,000+ on top of each IVF cycle, or around ~$700–$900+ per embryo. 
-
-            </p>
-
-            <p>
-              Do you want to test the embryos, or not?
+              But testing is not perfect. Some embryos can have a mixture of normal and abnormal cells,
+              which can make results harder to interpret. A small biopsy may not always represent the
+              whole embryo, so false positive or false negative results can occur (
+              <a
+                href="https://pubmed.ncbi.nlm.nih.gov/30691630/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-purple-700 underline hover:text-purple-900"
+              >
+                Victor et al.
+              </a>
+              ). Testing can also leave you with fewer embryos to choose from. In some cases, none are
+              recommended for transfer (
+              <a
+                href="https://pubmed.ncbi.nlm.nih.gov/26942198/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-purple-700 underline hover:text-purple-900"
+              >
+                Cimadomo et al.
+              </a>
+              ).
             </p>
           </div>
 
