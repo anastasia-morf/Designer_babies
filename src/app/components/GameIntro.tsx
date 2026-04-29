@@ -1,11 +1,9 @@
 import { Baby } from 'lucide-react';
 
 import { GameMode } from '../App';
-import { GoogleFormEmbed } from './GoogleFormEmbed';
 
-// 🔧 Paste your "before" Google Form embed URL here:
-const PRE_GAME_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSdHggu03q2xATqYAY7rVoLkmndxIVr-oGcn_qGIMQLJK1bb0Q/viewform';
+const PRE_GAME_MENTIMETER_URL =
+  'https://www.mentimeter.com/app/presentation/aldkuv3341v8jtzu2g3nzj72v3ydg2y6/embed';
 
 interface GameIntroProps {
   onModeSelect: (mode: GameMode) => void;
@@ -35,19 +33,27 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
             Before you start
           </p>
+
           <h2 className="mb-4 text-2xl font-black text-gray-900 sm:text-3xl">
             Quick survey
           </h2>
+
           <p className="mb-6 text-sm leading-relaxed text-gray-600 sm:text-base">
             A few questions before the game so we can see how things shift
             afterwards.
           </p>
 
-          <GoogleFormEmbed
-            src={PRE_GAME_FORM_URL}
-            title="Pre-game survey"
-            height={900}
-          />
+          <div className="relative overflow-hidden rounded-2xl shadow-md">
+            <div className="aspect-video w-full">
+              <iframe
+                src={PRE_GAME_MENTIMETER_URL}
+                title="Pre-game Mentimeter survey"
+                className="h-full w-full border-0"
+                sandbox="allow-popups allow-scripts allow-same-origin allow-presentation"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </section>
 
         <section className="rounded-3xl bg-white/90 p-8 text-center shadow-xl backdrop-blur sm:p-10">
