@@ -3,8 +3,8 @@ import { Home, RotateCcw } from 'lucide-react';
 import { GameState } from '../App';
 import { DecisionTree } from './DecisionTree';
 
-const POST_GAME_MENTIMETER_URL =
-  'PASTE_YOUR_POST_GAME_MENTIMETER_EMBED_LINK_HERE';
+const POST_GAME_MENTIMETER_LINK =
+  'PASTE_YOUR_POST_GAME_MENTIMETER_PARTICIPATION_LINK_HERE';
 
 interface FinalOutcomeProps {
   choices: GameState;
@@ -74,9 +74,11 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/80 sm:text-sm">
             You ended at
           </p>
+
           <h2 className="mt-2 text-3xl font-black sm:text-4xl">
             {outcome.title}
           </h2>
+
           <p className="mt-4 text-base leading-relaxed sm:text-lg">
             {outcome.summary}
           </p>
@@ -86,18 +88,21 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
             One more thing
           </p>
+
           <h3 className="mb-4 text-2xl font-black text-gray-900 sm:text-3xl">
             How did the game land?
           </h3>
+
           <p className="mb-6 text-sm leading-relaxed text-gray-600 sm:text-base">
             Quick survey now that you've played through.
           </p>
 
           <div className="rounded-2xl bg-purple-50 p-6 text-center">
             <p className="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
-              Click below to answer the Mentimeter questions. It will open in a new tab.
+              Click below to answer the Mentimeter questions. It will open in a
+              new tab.
             </p>
-          
+
             <a
               href={POST_GAME_MENTIMETER_LINK}
               target="_blank"
@@ -107,7 +112,8 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
               Open quick survey
             </a>
           </div>
-          
+        </section>
+
         <div className="pb-4 text-center">
           <button
             onClick={onRestart}
