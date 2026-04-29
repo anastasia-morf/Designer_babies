@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react';
+import { Baby } from 'lucide-react';
 
 import { GameMode } from '../App';
 import { GoogleFormEmbed } from './GoogleFormEmbed';
@@ -18,7 +18,7 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
         <section className="mb-8 rounded-3xl bg-white/90 p-8 text-center shadow-xl backdrop-blur sm:p-12">
           <div className="mb-6 flex justify-center">
             <div className="rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-4 shadow-lg">
-              <Sparkles className="h-8 w-8 text-white" />
+              <Baby className="h-8 w-8 text-white" />
             </div>
           </div>
 
