@@ -2,7 +2,7 @@ import { Baby } from 'lucide-react';
 
 import { GameMode } from '../App';
 
-const PRE_GAME_MENTIMETER_URL =
+const PRE_GAME_MENTIMETER_LINK =
   'https://www.menti.com/ali8fngzuy8b';
 
 interface GameIntroProps {
@@ -43,12 +43,12 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
             afterwards.
           </p>
 
-
           <div className="rounded-2xl bg-purple-50 p-6 text-center">
             <p className="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
-              Click below to answer the Mentimeter questions. It will open in a new tab.
+              Click below to answer the Mentimeter questions. It will open in a
+              new tab.
             </p>
-          
+
             <a
               href={PRE_GAME_MENTIMETER_LINK}
               target="_blank"
@@ -57,7 +57,7 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
             >
               Open quick survey
             </a>
-          </div>        
+          </div>
         </section>
 
         <section className="rounded-3xl bg-white/90 p-8 text-center shadow-xl backdrop-blur sm:p-10">
