@@ -2,11 +2,10 @@ import { Home, RotateCcw } from 'lucide-react';
 
 import { GameState } from '../App';
 import { DecisionTree } from './DecisionTree';
-import { GoogleFormEmbed } from './GoogleFormEmbed';
 
-// 🔧 Paste your "after" Google Form embed URL here:
-const POST_GAME_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSf5QxEV0HTOWarEzVSmi_Rp5DvUDzBfor-ygDldNDrjeAjFBA/viewform';
+// 🔧 Paste your "after" Mentimeter embed URL here:
+const POST_GAME_MENTIMETER_URL =
+  'PASTE_YOUR_POST_GAME_MENTIMETER_EMBED_LINK_HERE';
 
 interface FinalOutcomeProps {
   choices: GameState;
@@ -25,31 +24,30 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
     const publicFunding = choices.scene4 === 'A';
     const mandatory = choices.scene5 === 'A';
 
-if (publicFunding && mandatory) {
-  return {
-    title: 'Universal Screening',
-    summary:
-      'Screening is publicly funded and becomes part of standard IVF care. This could reduce preventable genetic disease and make access more equal, but it also raises questions about how much choice families really have when screening becomes the default.',
-    gradient: 'from-purple-600 to-pink-600',
-  };
-}
+    if (publicFunding && mandatory) {
+      return {
+        title: 'Universal Screening',
+        summary:
+          'Screening is publicly funded and becomes part of standard IVF care. This could reduce preventable genetic disease and make access more equal, but it also raises questions about how much choice families really have when screening becomes the default.',
+        gradient: 'from-purple-600 to-pink-600',
+      };
+    }
 
-if (publicFunding && !mandatory) {
-  return {
-    title: 'Funded Choice',
-    summary:
-      'Screening is available to everyone, but families decide whether to use it. This gives people more support without forcing one decision, though over time it may still create pressure to choose the “safest” embryo.',
-    gradient: 'from-blue-500 to-purple-600',
-  };
-}
+    if (publicFunding && !mandatory) {
+      return {
+        title: 'Funded Choice',
+        summary:
+          'Screening is available to everyone, but families decide whether to use it. This gives people more support without forcing one decision, though over time it may still create pressure to choose the “safest” embryo.',
+        gradient: 'from-blue-500 to-purple-600',
+      };
+    }
 
-return {
-  title: 'Private Access',
-  summary:
-    'Screening remains optional and privately funded. Families keep more personal control over the decision, but access depends on money, meaning some people have more reproductive choices than others.',
-  gradient: 'from-amber-500 to-orange-600',
-};
-
+    return {
+      title: 'Private Access',
+      summary:
+        'Screening remains optional and privately funded. Families keep more personal control over the decision, but access depends on money, meaning some people have more reproductive choices than others.',
+      gradient: 'from-amber-500 to-orange-600',
+    };
   };
 
   const outcome = getOutcome();
@@ -96,11 +94,17 @@ return {
             Quick survey now that you've played through.
           </p>
 
-          <GoogleFormEmbed
-            src={POST_GAME_FORM_URL}
-            title="Post-game survey"
-            height={900}
-          />
+          <div className="relative overflow-hidden rounded-2xl shadow-md">
+            <div className="aspect-video w-full">
+              <iframe
+                src={POST_GAME_MENTIMETER_URL}
+                title="Post-game Mentimeter survey"
+                className="h-full w-full border-0"
+                sandbox="allow-popups allow-scripts allow-same-origin allow-presentation"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </section>
 
         <div className="pb-4 text-center">
