@@ -3,7 +3,6 @@ import { Home, RotateCcw } from 'lucide-react';
 import { GameState } from '../App';
 import { DecisionTree } from './DecisionTree';
 
-// 🔧 Paste your "after" Mentimeter embed URL here:
 const POST_GAME_MENTIMETER_URL =
   'PASTE_YOUR_POST_GAME_MENTIMETER_EMBED_LINK_HERE';
 
@@ -94,19 +93,21 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
             Quick survey now that you've played through.
           </p>
 
-          <div className="relative overflow-hidden rounded-2xl shadow-md">
-            <div className="aspect-video w-full">
-              <iframe
-                src={POST_GAME_MENTIMETER_URL}
-                title="Post-game Mentimeter survey"
-                className="h-full w-full border-0"
-                sandbox="allow-popups allow-scripts allow-same-origin allow-presentation"
-                allowFullScreen
-              />
-            </div>
+          <div className="rounded-2xl bg-purple-50 p-6 text-center">
+            <p className="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+              Click below to answer the Mentimeter questions. It will open in a new tab.
+            </p>
+          
+            <a
+              href={POST_GAME_MENTIMETER_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-3 text-base font-bold text-white shadow-lg transition-all hover:scale-105 hover:from-purple-700 hover:to-pink-700"
+            >
+              Open quick survey
+            </a>
           </div>
-        </section>
-
+          
         <div className="pb-4 text-center">
           <button
             onClick={onRestart}
