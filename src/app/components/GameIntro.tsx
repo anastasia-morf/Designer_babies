@@ -38,11 +38,6 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
             Quick survey
           </h2>
 
-          <p className="mb-6 text-sm leading-relaxed text-gray-600 sm:text-base">
-            A few questions before the game so we can see how things shift
-            afterwards.
-          </p>
-
           <div className="rounded-2xl bg-purple-50 p-6 text-center">
             <p className="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
               Click below to answer the Mentimeter questions. It will open in a
