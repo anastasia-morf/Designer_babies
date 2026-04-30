@@ -40,26 +40,8 @@ export function Scene1({ onChoice, onHome }: Scene1Props) {
             <p>
               But testing is not perfect. Some embryos can have a mixture of normal and abnormal cells,
               which can make results harder to interpret. A small biopsy may not always represent the
-              whole embryo, so false positive or false negative results can occur (
-              <a
-                href="https://pubmed.ncbi.nlm.nih.gov/30691630/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-purple-700 underline hover:text-purple-900"
-              >
-                Victor et al.
-              </a>
-              ). Testing can also leave you with fewer embryos to choose from. In some cases, none are
-              recommended for transfer (
-              <a
-                href="https://pubmed.ncbi.nlm.nih.gov/26942198/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-purple-700 underline hover:text-purple-900"
-              >
-                Cimadomo et al.
-              </a>
-              ).
+              whole embryo, so false positive or false negative results can occur. Testing can also leave you with fewer embryos to choose from. In some cases, none are
+              recommended for transfer.
             </p>
           </div>
 
