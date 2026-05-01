@@ -34,7 +34,7 @@ export function Scene1({ onChoice, onHome }: Scene1Props) {
             <p>
               At your first IVF appointment, the clinic offers a series of preimplantation genetic tests, or PGTs.
               These tests screen embryos for certain genetic conditions, diseases or abnormalities that would severely limit the quality of life of the baby, 
-              to improve the chance of pregnancy and reduce the risk of miscarriage ().
+              to improve the chance of pregnancy and reduce the risk of miscarriage.
             </p>
 
             <p>
