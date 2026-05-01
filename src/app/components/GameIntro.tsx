@@ -3,7 +3,7 @@ import { Baby } from 'lucide-react';
 import { GameMode } from '../App';
 
 const PRE_GAME_MENTIMETER_LINK =
-  'https://www.menti.com/ali8fngzuy8b';
+  'https://www.menti.com/algbyyrscrg2';
 
 interface GameIntroProps {
   onModeSelect: (mode: GameMode) => void;
