@@ -30,19 +30,19 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
         </section>
 
         <section className="mb-8 rounded-3xl bg-white/90 p-6 shadow-xl backdrop-blur sm:p-8">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
+          {/* <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-600">
             Before you start
-          </p>
+          </p> */}
 
           <h2 className="mb-4 text-2xl font-black text-gray-900 sm:text-3xl">
             Quick survey
           </h2>
 
           <div className="rounded-2xl bg-purple-50 p-6 text-center">
-            <p className="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+            {/* <p className="mb-4 text-sm leading-relaxed text-gray-600 sm:text-base">
               Click below to answer the Mentimeter questions. It will open in a
               new tab.
-            </p>
+            </p> */}
 
             <a
               href={PRE_GAME_MENTIMETER_LINK}
@@ -50,7 +50,7 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
               rel="noopener noreferrer"
               className="inline-flex rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-3 text-base font-bold text-white shadow-lg transition-all hover:scale-105 hover:from-purple-700 hover:to-pink-700"
             >
-              Open quick survey
+              Open Mentimeter
             </a>
           </div>
         </section>
@@ -63,11 +63,11 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
             Begin the journey
           </button>
 
-          <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-gray-600 sm:text-base">
+          {/* <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-gray-600 sm:text-base">
             A simulation exploring the ethical dimensions of reproductive
             genetic technologies. This is not medical advice or a recommendation
             of any technology.
-          </p>
+          </p> */}
         </section>
       </main>
     </div>
