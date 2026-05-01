@@ -119,7 +119,7 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
                 Start with a quick survey
               </h2>
               <p className="mb-4 text-sm leading-relaxed text-[#754635]/70">
-                Opens in a new tab — come back when you're done.
+                Opens in a new tab.
               </p>
               <a
                 href={PRE_GAME_MENTIMETER_LINK}
