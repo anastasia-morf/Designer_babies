@@ -64,6 +64,7 @@ export function Scene2({ choices, onChoice, onHome }: Scene2Props) {
               <>
                 <p>
                   Unfortunately, you had a miscarriage and you are back at the clinic for a second IVF cycle. This time, you agree to do the standard testing.
+                  Before you leave the appointment, the counsellor mentions an expanded testing option.
                 </p>
 
                 <p>
