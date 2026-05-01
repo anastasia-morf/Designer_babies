@@ -230,22 +230,19 @@ export function FinalOutcome({ choices, onRestart, onHome }: FinalOutcomeProps) 
           </p>
         </div>
 
-        <div className="mb-8">
+        <div className="relative z-50 mb-16 overflow-visible">
           <DecisionTree choices={choices} />
         </div>
 
-        <section className="mb-8 rounded-3xl bg-white/80 p-6 shadow-md backdrop-blur sm:p-8">
+        <section className="relative z-0 mb-8 rounded-3xl bg-white/80 p-6 shadow-md backdrop-blur sm:p-8">
+
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#a7715b] sm:text-sm">
             One more thing
           </p>
 
           <h3 className="mb-4 font-['Oleo_Script',cursive] text-3xl text-[#754635] sm:text-4xl">
-            How did the game land?
+            Quick survey!
           </h3>
-
-          <p className="mb-6 text-sm leading-relaxed text-[#754635]/75 sm:text-base">
-            Quick survey now that you've played through.
-          </p>
 
           <div className="rounded-2xl bg-[#dd9385]/15 p-6 text-center">
             <p className="mb-4 text-sm leading-relaxed text-[#754635]/80 sm:text-base">
