@@ -49,15 +49,7 @@ export function Scene5({ choices, onChoice, onHome }: Scene5Props) {
             </p>
 
             <p>
-              Disability rights groups call the proposal eugenics. They argue that “severe” is being defined without enough input from people who live with these conditions. Some families feel the policy suggests their children should not exist.
-            </p>
-
-            <p>
-              Others, including some parents of children with severe genetic conditions, support the bill. They argue that if technology can prevent serious suffering, there may be a responsibility to use it.
-            </p>
-
-            <p>
-              Where do you stand? Do you support mandatory genetic screening for all IVF pregnancies?
+              Do you support mandatory genetic screening for all IVF pregnancies?
             </p>
           </div>
 
