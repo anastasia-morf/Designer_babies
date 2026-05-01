@@ -172,7 +172,7 @@ export function GameIntro({ onModeSelect }: GameIntroProps) {
                 }`}
               >
                 {surveyOpened
-                  ? "You're all set — let's go."
+                  ? "Let's go!"
                   : 'Unlocks once you open the survey above.'}
               </p>
               <button
