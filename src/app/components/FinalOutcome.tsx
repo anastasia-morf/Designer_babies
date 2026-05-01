@@ -4,7 +4,7 @@ import { GameState } from '../App';
 import { DecisionTree } from './DecisionTree';
 
 const POST_GAME_MENTIMETER_LINK =
-  'PASTE_YOUR_POST_GAME_MENTIMETER_PARTICIPATION_LINK_HERE';
+  'https://www.menti.com/alnm5zpy6xzm';
 
 interface FinalOutcomeProps {
   choices: GameState;
