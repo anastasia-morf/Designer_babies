@@ -46,8 +46,14 @@ export function Scene1({ onChoice, onHome }: Scene1Props) {
               whole embryo, so false positive or false negative results can occur. Testing can also leave you with fewer embryos to choose from. In some cases, none are
               recommended for transfer.
             </p>
-          </div>
 
+             <p>
+              It is also important to note that in Australia, PGT often reaches around $4,000 and $6,000+ on top of each IVF cycle and does not attract Medicare rebates if you don’t have any known genetic risks
+            </p>
+
+        
+          </div>
+          
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <button
               onClick={() => onChoice('A')}
