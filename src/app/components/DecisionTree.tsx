@@ -443,7 +443,7 @@ export function DecisionTree({ choices }: DecisionTreeProps) {
       title: 'How far do you screen?',
       optionA: {
         label: 'Disease variants only',
-        blurb: 'Basic panel, just the serious single-gene stuff.',
+        blurb: 'Basic panel, the serious single-gene defects.',
       },
       optionB: {
         label: 'Full polygenic panel',
